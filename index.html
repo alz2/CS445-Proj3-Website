@@ -1,8 +1,47 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <style>
+        .caption {
+            font-style: italic;
+            text-align: center;
+        }
+
+        .ImgMain {
+            max-width: 75%;
+            max-height: 75%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
 <body>
-    <h1> CS445 Proj 4: Image-Base Lighting </h1>
+    <h1 style="text-align:center;"> CS445 Proj 4: Image-Base Lighting </h1>
+    <p class="caption"> By Andrew Zhang (alz2) and Utkarsh Awasthi (uawasth2)</p>
+    <hr>
+
+    <h2> LDR Merging Techniques </h2>
+    <h3> Naive </h3>
+    <img src="./static/naive_irradiances.png" class="ImgMain">
+    <p class="caption"> Log irradiances for naive LDR Merging </p>
+    <img src="./static/naive_merged.png" class="ImgMain">
+    <img src="./static/naive_linear_merged.png" class="ImgMain">
+
+    <h3> Filtered </h3>
+    <img class="ImgMain" src="./static/filtered_irradiances.png">
+    <p class="caption"> Log irradiances for LDR Merging filtering out over and underexposed pixels</p>
+    <img src="./static/filtered_merged.png" class="ImgMain">
+    <img src="./static/filtered_linear_merged.png" class="ImgMain">
+
+    <h3> Estimating Response Function </h3>
+    <img class="ImgMain" src="./static/estimated_irradiances.png">
+    <p class="caption"> Log irradiances for estimated LDR Merging </p>
+    <img src="./static/estimated_merged.png" class="ImgMain">
+    <img src="./static/estimated_linear_merged.png" class="ImgMain">
+    <img class="ImgMain" src="./static/g_function.png">
 </body>
 
 </html>
