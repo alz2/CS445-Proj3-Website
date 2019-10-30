@@ -21,6 +21,7 @@
 <body>
     <h1 style="text-align:center;"> CS445 Proj 4: Image-Base Lighting </h1>
     <p class="caption"> By Andrew Zhang (alz2) and Utkarsh Awasthi (uawasth2)</p>
+    <p class="caption"> This is a duplicate page. It is hosted on BOTH <a href="http://alz2.web.illinois.edu/cs445/proj4/">Andrew's</a> and <a href="http://uawasth2.web.illinois.edu/cs445/proj4/">Utkarsh's</a> project pages. </p>
     <hr>
 
     <h2> LDR Merging Techniques </h2>
@@ -28,20 +29,34 @@
     <img src="./static/naive_irradiances.png" class="ImgMain">
     <p class="caption"> Log irradiances for naive LDR Merging </p>
     <img src="./static/naive_merged.png" class="ImgMain">
+    <p class="caption"> Tone mapped LDR </p>
     <img src="./static/naive_linear_merged.png" class="ImgMain">
+    <p class="caption"> Linearly scaled LDR </p>
 
     <h3> Filtered </h3>
     <img class="ImgMain" src="./static/filtered_irradiances.png">
     <p class="caption"> Log irradiances for LDR Merging filtering out over and underexposed pixels</p>
     <img src="./static/filtered_merged.png" class="ImgMain">
+    <p class="caption"> Tone mapped LDR </p>
     <img src="./static/filtered_linear_merged.png" class="ImgMain">
+    <p class="caption"> Linearly scaled LDR </p>
 
     <h3> Estimating Response Function </h3>
     <img class="ImgMain" src="./static/estimated_irradiances.png">
     <p class="caption"> Log irradiances for estimated LDR Merging </p>
     <img src="./static/estimated_merged.png" class="ImgMain">
+    <p class="caption"> Tone mapped LDR </p>
     <img src="./static/estimated_linear_merged.png" class="ImgMain">
+    <p class="caption"> Linearly scaled LDR </p>
     <img src="./static/g_function.png" class="ImgMain">
+
+    <h3> Discussion about log irradiances </h3>
+    <p> The log irradiances of the stages should be different across each stage, but should be more similar between the naive and filtered stage than with the estimated stage.
+    </p>
+    <p> We know that g(Z) = ln(t) + ln(R), where Z is the pixel intensities, t is the shutter times, and R is the irradiance. For each of the three stages, ln(t) is constant. For the sake of argument, we can ignore ln(t) for explaining how ln(R) is different. </p>
+    <p>We know ln(R) is different between the estimated stage and both naive and filtered stages because the naive and filtered stages assume that ln(Z) = g(Z) which isn’t the case. g(Z) is actually some camera specific mapping of pixel intensities to log exposures. Thus we can reason that the log irradiance of the estimated stage should be different than both the naive and filtered stages.
+    </p>
+    <p>We know that log irradiances for the naive and filtered stages should be different because even though they both assume that ln(Z) = g(Z), the pixel intensities of both images are different — that is, the merged Z’s are different. However, the filtered Z's are only different in because the filtering process ignores pixels which are over and under exposed, whereas the naive process does no filtering at all. However, given a well taken picture where there are no over and underexposed pixels, the log irradiance should be the same. So because each of the naive and filtered merged Z's are different, we can reason that ln(R) is different between the naive and filtered stages. </p>
 
     <h2> Panoramic Transformations </h2>
     <p> TODO </p>
